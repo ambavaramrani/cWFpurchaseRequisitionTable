@@ -8,9 +8,9 @@ entity Books {
 
 
 entity purchaseRequisition {
-  key ID : Integer;
-  productName  : String;
-  productCost  : Integer;
-  productCount : Integer;
-  approvalStatus : String;
+  VBELN  : String;
+  VKORG  : String;
+  SPRAT  : String;
+  AUDAT  : String;
+  VTWEG  : String;
 }

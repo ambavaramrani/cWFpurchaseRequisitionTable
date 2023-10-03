@@ -1,6 +1,6 @@
 ---
 _schema-version: '3.1'
-ID: backendproj1
+ID: backendproj2
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
@@ -13,7 +13,7 @@ build-parameters:
         - npx -p @sap/cds-dk cds build --production
 
 modules:
-  - name: backendproj1-srv
+  - name: backendproj2-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -25,26 +25,26 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      - name: backendproj1-db
+      - name: backendproj2-db
         properties:                               ###+++
-          TARGET_CONTAINER: backendproj1_HDI      ###+++      
+          target_container: backendproj2_HDI      ###+++      
 
-  - name: backendproj1-db-deployer
+  - name: backendproj2-db-deployer
     type: hdb
     path: gen/db
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: backendproj1-db
+      - name: backendproj2-db
 
 resources:
-  - name: backendproj1-db
+  - name: backendproj2-db
     type: com.sap.xs.hdi-container
     parameters:
       config:                             ##+++
-        schema: backendproj1_HDI          ##+++
+        schema: backendproj2_HDI          ##+++
       service: hana
-      service-name: backendproj1_HDI      ##+++
+      service-name: backendproj2_HDI      ##+++
       service-plan: hdi-shared        
     properties:
       hdi-service-name: ${service-name}
